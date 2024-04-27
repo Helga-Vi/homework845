@@ -2,6 +2,8 @@ const { Router } = require("express");
 const { save } = require("../save_json");
 let favouriteNumber = require("../number.json");
 const add = require("../add");
+const AWS = require("aws-sdk");
+const s3 = new AWS.S3()
 
 const router = new Router();
 
