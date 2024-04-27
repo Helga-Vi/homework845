@@ -1,6 +1,6 @@
 const AWS=require('aws-sdk');
 require('dotenv').config();
-console.log("it is aws-config file");
+console.log("This is aws-config file");
 
 //configure the AWS SDK 
 

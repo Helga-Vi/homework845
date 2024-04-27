@@ -2,10 +2,17 @@ const { Router } = require("express");
 const { save } = require("../save_json");
 let favouriteNumber = require("../number.json");
 const add = require("../add");
-const AWS = require("aws-sdk");
-const s3 = new AWS.S3()
+const s3 = require('../awsConfig');
+const { list } = require('../save_json');
 
 const router = new Router();
+
+//Check connection to S3 bucket
+list().then(() => {
+  console.log("Connection check completed.");
+ }).catch((error) => {
+  console.error("Failed to connect to AWS S3:", error);
+ });
 
 router.get("/sum/:number1/:number2", (req, res) => {
   const {number1, number2} = req.params;
